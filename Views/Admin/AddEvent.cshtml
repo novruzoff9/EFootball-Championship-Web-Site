@@ -1,0 +1,31 @@
+﻿@model FRITL_League_2023.Models.Event
+@{
+    ViewBag.Title = "AddEvent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddEvent", "Admin", FormMethod.Post))
+{
+    <section id="additems">
+
+        <input type="hidden" name="GameID" value="@ViewBag.gameid" readonly="readonly" />
+
+        <label for="player">Oyunçu</label>
+        @Html.DropDownListFor(x => x.PlayerID, (List<SelectListItem>)ViewBag.players, new
+           { @class = "form-control" })
+
+        <label>Gol</label>
+        <input type="number" name="Goal" class="form-control">
+
+        <label>Asist</label>
+        <input type="number" name="Asist" class="form-control">
+
+        <label>Qırmızı Kart</label>
+        <input type="number" name="RedCard" class="form-control">
+
+        <label>Seyv</label>
+        <input type="number" name="Save" class="form-control">
+
+        <button class="btn btn-success">Artır</button>
+    </section>
+}

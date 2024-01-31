@@ -1,0 +1,47 @@
+﻿@using FRITL_League_2023.Models
+@{
+    Context c = new Context();
+    int i = -1;
+}
+@model List<Player>
+
+
+<style>
+    .data-value img{
+        width: 40px !important;
+        border-radius: 0 !important;
+    }
+</style>
+@foreach (var item in Model)
+{
+    i+= 1;
+    var team = c.Teams.FirstOrDefault(x => x.TeamID == item.TeamID);
+    <div class="best">
+        <div class="data-player">
+            <img class="teamlogo" src="@team.TeamLogo" alt="">
+            <p class="player">@item.PlayerName</p>
+        </div>
+        <div class="data-value">
+            @if (i == 0)
+            {
+                <p class="data">@item.Goal</p>
+                <i class="fas fa-futbol"></i>
+            }
+            @if (i == 1)
+            {
+                <p class="data">@item.Asist</p>
+                <img class="asist" src="~/Images/asist.png" alt="">
+            }
+            @if (i == 2)
+            {
+                <p class="data">@item.Save</p>
+                <img src="~/Images/goalkeeper.png" alt="">
+            }
+            @if (i == 3)
+            {
+                <p class="data">@item.RedCard</p>
+                <span class="redcard"></span>
+            }
+        </div>
+    </div>
+}

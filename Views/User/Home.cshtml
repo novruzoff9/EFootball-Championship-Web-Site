@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/CSS/Home.css" rel="stylesheet" />
+
+<style>
+
+    #homelink {
+        background-color: #0162e8;
+    }
+
+    #groups main {
+        -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 24px;
+    }
+
+    #groups .group {
+        scroll-snap-align: start;
+    }
+</style>
+<section id="groups">
+    <header>
+        <p>Qruplar</p>
+    </header>
+    <main>
+        @Html.Action("Groups", "User", new { @group = "A" })
+        @Html.Action("Groups", "User", new { @group = "B" })
+        @Html.Action("Groups", "User", new { @group = "C" })
+
+    </main>
+</section>
+
+
+@Html.Action("BestGames", "User")
+
+<section id="bests">
+    <header>
+        <p>Ən yəxçilər</p>
+    </header>
+
+    <main>
+        @Html.Action("BestPlayers", "User")
+    </main>
+</section>

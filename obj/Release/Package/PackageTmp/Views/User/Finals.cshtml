@@ -1,0 +1,87 @@
+﻿@using FRITL_League_2023.Models
+@model List<Team>
+@{
+    Context c = new Context();
+    ViewBag.Title = "Finals";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    var stage1 = Model.Where(x => x.Stage == 1).ToList();
+    var stage2 = Model.Where(x => x.Stage == 2).ToList();
+    var stage3 = Model.Where(x => x.Stage == 3).ToList();
+    var stage4 = Model.Where(x => x.Stage == 4).ToList();
+}
+
+<link href="~/CSS/finals.css" rel="stylesheet" />
+
+<style>
+
+    .trophyroad {
+        background-color: #0162e8 !important;
+    }
+</style>
+
+<section id="finals">
+    <header>
+        <p>Finallar</p>
+    </header>
+    <main>
+        <div class="tour">
+            @Html.Action("FinalsGame", "User", new { @tour = "1/4 FINAL", @stage = 1 })
+
+            @Html.Action("FinalsGame", "User", new { @tour = "1/4 FINAL", @stage = 2 })
+
+            @Html.Action("FinalsGame", "User", new { @tour = "1/4 FINAL", @stage = 3 })
+
+            @Html.Action("FinalsGame", "User", new { @tour = "1/4 FINAL", @stage = 4 })
+        </div>
+
+        <div class="tour semi-final">
+            <div class="game">
+
+                @Html.Action("SemiFinalist", "User", new { @stage = 1 })
+
+                @Html.Action("SemiFinalist", "User", new { @stage = 2 })
+            </div>
+
+            <div class="game">
+                @Html.Action("SemiFinalist", "User", new { @stage = 3 })
+
+                @Html.Action("SemiFinalist", "User", new { @stage = 4 })
+            </div>
+        </div>
+
+        <div class="tour final">
+            <div class="game">
+                <div class="team empty">
+                    <div class="logo">
+                        <img src="~/Images/BEL.jpg" alt="">
+                    </div>
+                    <p class="teamname">???</p>
+                    <div class="goals">
+                        <span></span>
+                    </div>
+                </div>
+                <div class="team">
+                    <div class="logo">
+                        <img src="~/Images/CHE.png" alt="">
+                    </div>
+                    <p class="teamname">CHE</p>
+                    <div class="goals">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="champion">
+            <img class="cup" src="~/Images/ChampionsLeague Cup.png" alt="">
+            <div class="team">
+                <div class="logo">
+                    <img src="~/Images/MNU.png" alt="">
+                </div>
+                <p class="teamname">Manchester United</p>
+            </div>
+        </div>
+    </main>
+
+</section>

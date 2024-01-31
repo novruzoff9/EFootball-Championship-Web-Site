@@ -1,0 +1,57 @@
+#games main {
+  flex-direction: column;
+}
+#games .tour p {
+  color: white;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+#games .game {
+  margin: 5px 0;
+  width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  justify-content: space-between;
+  border-radius: 16px;
+  background-color: #373b41;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+#games .game .team {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 38%;
+  justify-content: space-between;
+}
+#games .game .team .logo {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#games .game .team img {
+  height: 50px;
+  border-radius: 50%;
+}
+#games .game .team p {
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0;
+}
+#games .game .result {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0;
+  width: 24%;
+  padding: 0 10px;
+}
+#games .game .result span {
+  width: 40%;
+  text-align: center;
+}/*# sourceMappingURL=games.css.map */

@@ -1,0 +1,20 @@
+﻿@using FRITL_League_2023.Models
+@{ 
+    Context c = new Context();
+}
+@model List<Player>
+
+@foreach (var item in Model)
+{
+    var team = c.Teams.FirstOrDefault(x => x.TeamID == item.TeamID);
+    <div class="best">
+        <div class="data-player">
+            <img src="@team.TeamLogo" alt="">
+            <p class="player">@item.PlayerName</p>
+        </div>
+        <div class="data-value">
+            <p class="data">@item.Goal</p>
+            <i class="fas fa-futbol"></i>
+        </div>
+    </div>
+}

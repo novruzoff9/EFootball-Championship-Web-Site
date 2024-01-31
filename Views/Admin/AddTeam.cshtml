@@ -1,0 +1,27 @@
+﻿@model FRITL_League_2023.Models.Team
+@{
+    ViewBag.Title = "AddTeam";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddTeam", "Admin", FormMethod.Post))
+{
+    <section id="additems">
+        <label for="team-logo">Loqo</label>
+        <input name="TeamLogo" id="team-logo" type="text" class="form-control">
+
+        <label for="team-name">Ad</label>
+        <input name="TeamName" id="team-name" type="text" class="form-control">
+
+        <label for="team-shortname">Qısa ad</label>
+        <input name="TeamShortName" id="team-shortname" type="text" class="form-control">
+
+        <label for="team-controller">Oyunçu</label>
+        <input name="Controller" id="team-controller" type="text" class="form-control">
+
+        <label for="team-group">Qrup</label>
+        <input name="Group" id="team-group" type="text" class="form-control">
+
+        <button class="btn btn-success">Artır</button>
+    </section>
+}

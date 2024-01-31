@@ -1,0 +1,275 @@
+﻿@model FRITL_League_2023.Models.Game
+@using FRITL_League_2023.Models
+@{
+    ViewBag.Title = "MatchDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Context C = new Context();
+    var team1 = C.Teams.FirstOrDefault(x => x.TeamID == Model.Team1ID);
+    var team2 = C.Teams.FirstOrDefault(x => x.TeamID == Model.Team2ID);
+}
+
+<link href="~/CSS/Game.css" rel="stylesheet" />
+
+<style>
+    a{
+        text-decoration: none !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+
+<section id="game">
+    <header>
+        <div class="team">
+            <a href="/User/TeamDetails/@team1.TeamID">
+                <img src="@team1.TeamLogo" alt="">
+                <p>@team1.TeamShortName</p>
+            </a>
+        </div>
+        <div class="result">
+            <div class="game-type">Qrup</div>
+            <div class="score">
+                <span class="goal">@Model.Team1Score</span>
+                &nbsp;&nbsp;:&nbsp;&nbsp;<span class="goal">@Model.Team2Score</span>
+            </div>
+            <p class="tour">@Model.Tour</p>
+        </div>
+        <div class="team">
+            <a href="/User/TeamDetails/@team2.TeamID">
+                <img src="@team2.TeamLogo" alt="">
+                <p>@team2.TeamShortName</p>
+            </a>
+        </div>
+    </header>
+
+    <article>
+        <p class="link activetab">Statistika</p>
+        <p class="link">Qollar</p>
+        <p class="link">Asistlər</p>
+        <p class="link">Kartlar</p>
+    </article>
+
+    <div id="statisticstab" class="tab">
+
+        <div id="asist" class="statistic">
+            <div class="details">
+                <p class="count">@Model.Team1Asist</p>
+                <p class="name">Asist</p>
+                <p class="count">@Model.Team2Asist</p>
+            </div>
+            <div class="progress"></div>
+        </div>
+
+        <div id="shot" class="statistic">
+            <div class="details">
+                <p class="count">@Model.Team1Shot</p>
+                <p class="name">Zərbə</p>
+                <p class="count">@Model.Team2Shot</p>
+            </div>
+            <div class="progress"></div>
+        </div>
+
+        <div id="scoreshot" class="statistic">
+            <div class="details">
+                <p class="count">@Model.Team1ShotonTarget</p>
+                <p class="name">Qapıya zərbə</p>
+                <p class="count">@Model.Team2ShotonTarget</p>
+            </div>
+            <div class="progress"></div>
+        </div>
+
+        <div id="stealing" class="statistic">
+            <div class="details">
+                <p class="count">@Model.Team1Stealing</p>
+                <p class="name">Top alma</p>
+                <p class="count">@Model.Team2Stealing</p>
+            </div>
+            <div class="progress"></div>
+        </div>
+
+        <div id="foul" class="statistic">
+            <div class="details">
+                <p class="count">@Model.Team1Foul</p>
+                <p class="name">Cərimə</p>
+                <p class="count">@Model.Team2Foul</p>
+            </div>
+            <div class="progress"></div>
+        </div>
+
+        <div id="redcard" class="statistic">
+            <div class="details">
+                <p class="count">@Model.Team1RedCard</p>
+                <p class="name">Qırmızı kart</p>
+                <p class="count">@Model.Team2RedCard</p>
+            </div>
+            <div class="progress"></div>
+        </div>
+
+        <div id="corner" class="statistic">
+            <div class="details">
+                <p class="count">@Model.Team1Corner</p>
+                <p class="name">Korner</p>
+                <p class="count">@Model.Team2Corner</p>
+            </div>
+            <div class="progress"></div>
+        </div>
+
+        <div id="pass" class="statistic">
+            <div class="details">
+                <p class="count">@Model.Team1Pass</p>
+                <p class="name">Dəqiq pas(%)</p>
+                <p class="count">@Model.Team2Pass</p>
+            </div>
+            <div class="progress"></div>
+        </div>
+
+        <div id="possession" class="statistic">
+            <div class="details">
+                <p class="count">@Model.Team1Possession</p>
+                <p class="name">Topla Oynama(%)</p>
+                <p class="count">@Model.Team2Possession</p>
+            </div>
+            <div class="progress"></div>
+        </div>
+    </div>
+
+    @Html.Action("GameGoals", "User", new { @id = Model.GameID });
+    @Html.Action("GameAsists", "User", new { @id = Model.GameID });
+    @Html.Action("GameRedCards", "User", new { @id = Model.GameID });
+
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+        $(document).ready(function () {
+
+            $("#goalstab").hide();
+            $("#asiststab").hide();
+            $("#cardstab").hide();
+
+            $(".link").click(function () {
+                $(".link").removeClass("activetab");
+                $(this).addClass("activetab");
+                $(".tab").hide();
+                if ($(this).text() == "Statistika") {
+                    $("#statisticstab").show();
+                }
+                if ($(this).text() == "Qollar") {
+                    $("#goalstab").show();
+                }
+                if ($(this).text() == "Asistlər") {
+                    $("#asiststab").show();
+                }
+                if ($(this).text() == "Kartlar") {
+                    $("#cardstab").show();
+                }
+            });
+
+
+            $(document).scroll(function () {
+                if ($(document).scrollTop() > 100) {
+                    header.addClass("shrink");
+                }
+                else {
+                    header.removeClass("shrink")
+                }
+            });
+
+            var team1asist = @Model.Team1Asist;
+            var team2asist = @Model.Team2Asist;
+            var asists = team1asist + team2asist;
+            var asist1per = parseInt(team1asist / asists * 100);
+            var asist2per = parseInt(team2asist / asists * 100);
+            var gradientasist;
+            gradientasist = 'linear-gradient(90deg, #0162e8 0%, #0162e8 ' + asist1per + '%, #fff ' + asist1per +'%, #fff 100%)';
+
+            $("#asist .progress").css("background", gradientasist);
+
+            var team1shot = @Model.Team1Shot;
+            var team2shot = @Model.Team2Shot;
+            var shots = team1shot + team2shot;
+            var shot1per = parseInt(team1shot / shots * 100);
+            var shot2per = parseInt(team2shot / shots * 100);
+            var gradient;
+            gradient = 'linear-gradient(90deg, #0162e8 0%, #0162e8 ' + shot1per + '%, #fff ' + shot1per + '%, #fff 100%)';
+
+            $("#shot .progress").css("background", gradient);
+
+            var team1scoreshot = @Model.Team1ShotonTarget;
+            var team2scoreshot = @Model.Team2ShotonTarget;
+            var scoreshots = team1scoreshot + team2scoreshot;
+            var scoreshot1per = parseInt(team1scoreshot / scoreshots * 100);
+            var scoreshot2per = parseInt(team2scoreshot / scoreshots * 100);
+            var gradient2;
+            gradient2 = 'linear-gradient(90deg, #0162e8 0%, #0162e8 ' + scoreshot1per + '%, #fff ' + scoreshot1per + '%, #fff 100%)';
+
+            $("#scoreshot .progress").css("background", gradient2);
+
+            var team1stealing = @Model.Team1Stealing;
+            var team2stealing = @Model.Team2Stealing;
+            var stealings = team1stealing + team1stealing;
+            var stealing1per = parseInt(team1stealing / stealings * 100);
+            var stealing2per = parseInt(team2stealing / fouls * 100);
+            var gradientstealing;
+            gradientstealing = 'linear-gradient(90deg, #0162e8 0%, #0162e8 ' + stealing1per + '%, #fff ' + stealing1per + '%, #fff 100%)';
+
+            $("#stealing .progress").css("background", gradientstealing);
+
+            var team1corner = @Model.Team1Corner;
+            var team2corner = @Model.Team2Corner;
+            var corners = team1corner + team2corner;
+            var corner1per = parseInt(team1corner / corners * 100);
+            var corner2per = parseInt(team2corner / corners * 100);
+            var gradientcorner;
+            gradientcorner = 'linear-gradient(90deg, #0162e8 0%, #0162e8 ' + corner1per + '%, #fff ' + corner1per + '%, #fff 100%)';
+
+            $("#corner .progress").css("background", gradientcorner);
+
+            var team1foul = @Model.Team1Foul;
+            var team2foul = @Model.Team2Foul;
+            var fouls = team1foul + team2foul;
+            var foul1per = parseInt(team1foul / fouls * 100);
+            var foul2per = parseInt(team2foul / fouls * 100);
+            var gradient3;
+            gradient3 = 'linear-gradient(90deg, #0162e8 0%, #0162e8 ' + foul1per + '%, #fff ' + foul1per + '%, #fff 100%)';
+
+            $("#foul .progress").css("background", gradient3);
+
+            var team1redcard = @Model.Team1RedCard;
+            var team2redcard = @Model.Team2RedCard;
+            var redcards = team1redcard + team2redcard;
+            var redcard1per = parseInt(team1redcard / redcards * 100);
+            var redcard2per = parseInt(team2redcard / redcards * 100);
+            var gradientredcard;
+            gradientredcard = 'linear-gradient(90deg, #0162e8 0%, #0162e8 ' + redcard1per + '%, #fff ' + redcard1per + '%, #fff 100%)';
+
+            if (redcards == 0) {
+                gradientredcard = '#87898F';
+            }
+
+            $("#redcard .progress").css("background", gradientredcard);
+
+            var team1pass = @Model.Team1Pass;
+            var team2pass = @Model.Team2Pass;
+            var passs = team1pass + team2pass;
+            var pass1per = parseInt(team1pass / passs * 100);
+            var pass2per = parseInt(team2pass / passs * 100);
+            var gradientpass;
+            gradientpass = 'linear-gradient(90deg, #0162e8 0%, #0162e8 ' + pass1per + '%, #fff ' + pass1per + '%, #fff 100%)';
+
+            $("#pass .progress").css("background", gradientpass);
+
+            var possession1per = @Model.Team1Possession;
+            var possession2per = @Model.Team2Possession;
+            var gradient4;
+            gradient4 = 'linear-gradient(90deg, #0162e8 0%, #0162e8 ' + possession1per + '%, #fff ' + possession1per + '%, #fff 100%)';
+
+            $("#possession .progress").css("background", gradient4);
+
+            $("section").last().css("margin-bottom", "84px");
+        });
+
+</script>

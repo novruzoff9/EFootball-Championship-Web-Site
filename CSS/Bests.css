@@ -1,0 +1,70 @@
+#bests .type p {
+  color: white;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+#bests main {
+  flex-direction: column;
+  padding: 20px;
+}
+#bests main .best {
+  margin: 5px 0;
+  width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px;
+  background-color: #373b41;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+#bests main .best .data-player, #bests main .best .data-value {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#bests main .best .data-player {
+  width: 70%;
+}
+#bests main .best .data-value {
+  width: 20%;
+  justify-content: space-between;
+}
+#bests main .best img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+#bests main .best p.player {
+  margin-left: 8px;
+}
+#bests main .best p, #bests main .best i {
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+#bests main .best i {
+  font-size: 24px;
+}
+#bests main .best .asist {
+  width: 32px;
+  height: 32px;
+  transform: rotate(70deg);
+}
+#bests main .best .redcard {
+  width: 30px;
+  height: 40px;
+  background-color: red;
+  border-radius: 8px;
+  transform: rotate(15deg);
+}
+#bests main .best .yellowcard {
+  width: 30px;
+  height: 40px;
+  background-color: yellow;
+  border-radius: 8px;
+  transform: rotate(15deg);
+}/*# sourceMappingURL=Bests.css.map */

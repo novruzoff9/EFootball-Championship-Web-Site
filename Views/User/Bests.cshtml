@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Bests";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<style>
+
+    #bestslink {
+        background-color: #0162e8;
+    }
+</style>
+
+<link href="~/CSS/Bests.css" rel="stylesheet" />
+
+<section id="bests">
+    <header>
+        <p>Statistikalar</p>
+    </header>
+
+    <main>
+        <div class="type">
+            <p>Qol</p>
+        </div>
+        @Html.Action("BestScorers", "User")
+
+        <div class="type">
+            <p>Asist</p>
+        </div>
+        @Html.Action("BestAsisters", "User")
+
+        <div class="type">
+            <p>Save</p>
+        </div>
+        @Html.Action("MostSaves", "User")
+
+        <div class="type">
+            <p>Qırmızı kart</p>
+        </div>
+        @Html.Action("MostRedCards", "User")
+    </main>
+</section>
+

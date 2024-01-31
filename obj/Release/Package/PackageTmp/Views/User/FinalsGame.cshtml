@@ -1,0 +1,32 @@
+﻿@using FRITL_League_2023.Models
+@model List<Game>
+@{ 
+    Context c = new Context();
+    var firstgame = Model.First();
+    var secondgame = Model.Last();
+    var team1 = c.Teams.FirstOrDefault(x => x.TeamID == firstgame.Team1ID);
+    var team2 = c.Teams.FirstOrDefault(x => x.TeamID == firstgame.Team2ID);
+
+}
+<div class="game">
+    <div class="team">
+        <div class="logo">
+            <img src="@team1.TeamLogo" alt="">
+        </div>
+        <p class="teamname">@team1.TeamShortName</p>
+        <div class="goals">
+            <span>@firstgame.Team1Score</span>
+            <span>@secondgame.Team2Score</span>
+        </div>
+    </div>
+    <div class="team">
+        <div class="logo">
+            <img src="@team2.TeamLogo" alt="">
+        </div>
+        <p class="teamname">@team2.TeamShortName</p>
+        <div class="goals">
+            <span>@firstgame.Team2Score</span>
+            <span>@secondgame.Team1Score</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Standings";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<link href="~/CSS/Groups.css" rel="stylesheet" />
+
+<style>
+
+    #standingslink {
+        background-color: #0162e8;
+    }
+</style>
+
+<section id="groups">
+    <header>
+        <p>Qruplar</p>
+    </header>
+    <main>
+        @Html.Action("Groups", "User", new { @group = "A" })
+        @Html.Action("Groups", "User", new { @group = "B" })
+        @Html.Action("Groups", "User", new { @group = "C" })
+    </main>
+</section>
+

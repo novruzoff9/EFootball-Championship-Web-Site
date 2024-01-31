@@ -1,0 +1,44 @@
+﻿@using FRITL_League_2023.Models
+@model List<Team>
+
+<style>
+    a{
+        text-decoration: none !important;
+    }
+</style>
+<div class="group">
+    <div class="header">
+        <p class="groupname">Qrup @ViewBag.group</p>
+        <div class="datas">
+            <p>O</p>
+            <p>Q</p>
+            <p>B</p>
+            <p>M</p>
+            <p>G</p>
+            <p>X</p>
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        int average = item.GoalFor - item.GoalAgainst;
+        <div class="team">
+            <div class="logo">
+                <a href="/User/TeamDetails/@item.TeamID">
+                    <img src="@item.TeamLogo" alt="">
+                </a>
+            </div>
+            <a href="/User/TeamDetails/@item.TeamID">
+                <p class="teamname">@item.TeamShortName</p>
+            </a>
+            <div class="datas">
+                <p>@item.Game</p>
+                <p>@item.Win</p>
+                <p>@item.Draw</p>
+                <p>@item.Lose</p>
+                <p>@average</p>
+                <p>@item.Point</p>
+            </div>
+        </div>
+    }
+
+</div>

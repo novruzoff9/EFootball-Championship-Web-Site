@@ -1,0 +1,29 @@
+﻿@using FRITL_League_2023.Models
+@model List<Game>
+@{ 
+    Context c = new Context();
+}
+
+@foreach (var item in Model)
+{
+   var team1 = c.Teams.FirstOrDefault(x => x.TeamID == item.Team1ID);
+   var team2 = c.Teams.FirstOrDefault(x => x.TeamID == item.Team2ID);
+
+    <a href="/User/MatchDetails/@item.GameID">
+        <div class="game">
+            <div class="team">
+                <img src="@team1.TeamLogo" alt="">
+                <p>@team1.TeamShortName</p>
+            </div>
+            <div class="result">
+                <span class="goal1">@item.Team1Score</span>
+                &nbsp;&nbsp;:&nbsp;&nbsp;<span class="goal2">@item.Team2Score</span>
+            </div>
+            <div class="team">
+                <p>@team2.TeamShortName</p>
+                <img src="@team2.TeamLogo" alt="">
+            </div>
+        </div>
+    </a>
+}
+

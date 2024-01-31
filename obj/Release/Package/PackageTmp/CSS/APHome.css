@@ -1,0 +1,59 @@
+a {
+  text-decoration: none !important;
+}
+
+#additems {
+  margin-top: 20px;
+  padding: 0 20px;
+}
+#additems main {
+  flex-direction: column;
+}
+#additems .add {
+  width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  align-items: baseline;
+  border-radius: 16px;
+  background-color: #373b41;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+#additems .add span.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-style: dashed;
+}
+#additems .add p {
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0;
+  margin-left: 10px;
+}
+#additems .add:not(:first-child) {
+  margin-top: 5px;
+}
+#additems .add:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+label {
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+input, select {
+  margin-bottom: 12px !important;
+}
+
+.btn {
+  margin-top: 8px;
+  font-weight: 500;
+}/*# sourceMappingURL=APHome.css.map */

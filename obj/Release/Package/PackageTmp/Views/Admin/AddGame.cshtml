@@ -1,0 +1,100 @@
+﻿@model FRITL_League_2023.Models.Game
+@{
+    ViewBag.Title = "AddGame";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .duoinput {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+        .duoinput .half {
+            width: calc(50% - 40px);
+        }
+</style>
+
+@using (Html.BeginForm("AddGame", "Admin", FormMethod.Post))
+{
+    <section id="additems">
+        <label for="player-team">Komanda 1</label>
+        @Html.DropDownListFor(x => x.Team1ID, (List<SelectListItem>)ViewBag.teams, new
+           { @class = "form-control", @id = "player-team" })
+
+        <label for="player-team">Komanda 2</label>
+        @Html.DropDownListFor(x => x.Team2ID, (List<SelectListItem>)ViewBag.teams, new
+           { @class = "form-control", @id = "player-team" })
+
+        <label>Tur</label>
+        <div class="duoinput">
+            <input name="Tour" type="text" class="form-control">
+        </div>
+
+        <label>Gol</label>
+        <div class="duoinput">
+            <input name="Team1Score" type="number" class="form-control half">
+            <input name="Team2Score" type="number" class="form-control half">
+        </div>
+
+        <label>Asist</label>
+        <div class="duoinput">
+            <input name="Team1Asist" type="number" class="form-control half">
+            <input name="Team2Asist" type="number" class="form-control half">
+        </div>
+
+        <label>Zərbə</label>
+        <div class="duoinput">
+            <input name="Team1Shot" type="number" class="form-control half">
+            <input name="Team2Shot" type="number" class="form-control half">
+        </div>
+
+        <label>Qapıya zərbə</label>
+        <div class="duoinput">
+            <input name="Team1ShotonTarget" type="number" class="form-control half">
+            <input name="Team2ShotonTarget" type="number" class="form-control half">
+        </div>
+
+        <label>Cərimə</label>
+        <div class="duoinput">
+            <input name="Team1Foul" type="number" class="form-control half">
+            <input name="Team2Foul" type="number" class="form-control half">
+        </div>
+
+        <label>Qırmızı Kart</label>
+        <div class="duoinput">
+            <input name="Team1RedCard" type="number" class="form-control half">
+            <input name="Team2RedCard" type="number" class="form-control half">
+        </div>
+
+        <label>Dəqiq pas (%)</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1Pass, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2Pass, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <label>Korner</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1Corner, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2Corner, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <label>Top çalma</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1Stealing, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2Stealing, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <label>Topla oynama (%)</label>
+        <div class="duoinput">
+            <input name="Team1Possession" type="number" class="form-control half">
+            <input name="Team2Possession" type="number" class="form-control half">
+        </div>
+
+        <button class="btn btn-success">Artır</button>
+    </section>
+
+
+}

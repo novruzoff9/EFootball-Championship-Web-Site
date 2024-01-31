@@ -1,0 +1,81 @@
+﻿@using FRITL_League_2023.Models
+@model List<Game>
+
+@{
+    Context c = new Context();
+    string tour = "0";
+}
+
+
+<style>
+
+    #games .game .result span {
+        width: 40% !important;
+    }
+
+    #games .game .result {
+        width: 30% !important;
+    }
+
+    #games .game .team {
+        width: 35% !important;
+    }
+
+    a {
+        text-decoration: none !important;
+    }
+    a:not(:first-child){
+        margin-top: 5px;
+    }
+        a:not(:last-child) {
+            margin-bottom: 5px;
+        }
+    .logo {
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .team img {
+        width: auto !important;
+        height: 50px;
+        border-radius: 50%;
+    }
+</style>
+
+<section id="games">
+    <header>
+        <p>Oyunlar</p>
+    </header>
+    <main>
+
+        @foreach (var item in Model)
+        {
+            var team1 = c.Teams.FirstOrDefault(x => x.TeamID == item.Team1ID);
+            var team2 = c.Teams.FirstOrDefault(x => x.TeamID == item.Team2ID);
+            <a href="/User/MatchDetails/@item.GameID">
+                <div class="game">
+                    <div class="team">
+                        <div class="logo">
+                            <img src="@team1.TeamLogo" alt="">
+                        </div>
+                        <p>@team1.TeamShortName</p>
+                    </div>
+                    <div class="result">
+                        <span class="goal1">@item.Team1Score</span>
+                        &nbsp;&nbsp;:&nbsp;&nbsp;<span class="goal2">@item.Team2Score</span>
+                    </div>
+                    <div class="team">
+                        <p>@team2.TeamShortName</p>
+                        <div class="logo">
+                            <img src="@team2.TeamLogo" alt="">
+                        </div>
+                    </div>
+                </div>
+            </a>
+         }
+    </main>
+
+</section>
+

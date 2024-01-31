@@ -1,0 +1,270 @@
+﻿@using FRITL_League_2023.Models;
+@model FRITL_League_2023.Models.Team
+@{
+    ViewBag.Title = "TeamDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Context c = new Context();
+}
+
+<link href="~/CSS/TeamStats.css" rel="stylesheet" />
+
+<style>
+    a {
+        text-decoration: none !important;
+    }
+
+    #team > header {
+        justify-content: normal !important;
+    }
+
+        #team > header > .details {
+            margin-left: 20px;
+        }
+</style>
+
+<section id="team">
+    <header>
+        <div class="logo">
+            <img src="@Model.TeamLogo" alt="">
+        </div>
+        <div class="details">
+            @if (Model.TeamShortName == "CHE")
+            {
+                <p class="secondary">
+                    CHE <span class="cup">
+                        &nbsp;
+                        | <img src="~/Images/trophy.png" alt="">
+                    </span>
+                </p>
+            }
+            else
+            {
+                <p class="secondary">@Model.TeamShortName</p>
+            }
+            <p class="main">@Model.TeamName</p>
+            <p class="secondary">@Model.Controller</p>
+        </div>
+    </header>
+
+    <article>
+        <p class="link activetab">Statistika</p>
+        <p class="link">Oyunçular</p>
+        <p class="link">Oyunlar</p>
+        <p class="link">Qrup</p>
+    </article>
+
+    <div id="statisticstab" class="tab">
+        @{ 
+            var games = c.Games.Where(x => x.Team1ID == Model.TeamID || x.Team2ID == Model.TeamID).ToList();
+            int shot = 0, shotontarget = 0, asist = 0, posession = 0, stealing = 0,
+                pass = 0, corner = 0, foul = 0;
+            foreach (var item in games)
+            {
+                if(item.Team1ID == Model.TeamID)
+                {
+                    shot += item.Team1Shot;
+                    shotontarget += item.Team1ShotonTarget;
+                    asist += item.Team1Asist;
+                    posession += item.Team1Possession;
+                    stealing += item.Team1Stealing;
+                    pass += item.Team1Pass;
+                    corner += item.Team1Corner;
+                    foul += item.Team1Foul;
+                }
+                else if (item.Team2ID == Model.TeamID)
+                {
+                    shot += item.Team2Shot;
+                    shotontarget += item.Team2ShotonTarget;
+                    asist += item.Team2Asist;
+                    posession += item.Team2Possession;
+                    stealing += item.Team2Stealing;
+                    pass += item.Team2Pass;
+                    corner += item.Team2Corner;
+                    foul += item.Team2Foul;
+                }
+            }
+            double game = Model.Game;
+            double averagegoalfor = Math.Round(Model.GoalFor / game, 2);
+            double averagegoalagainst = Math.Round(Model.GoalAgainst / game, 2);
+            double averageshot = Math.Round(shot / game, 2);
+            double averageshotontarget = Math.Round(shotontarget / game, 2);
+            double averageasist = Math.Round(asist / game, 2);
+            double averageredcard = Math.Round(Model.RedCard / game, 2);
+            double averageposession = Math.Round(posession / game, 2);
+            double averagestealing = Math.Round(stealing / game, 2);
+            double averagepass = Math.Round(pass / game, 2);
+            double averagecorner = Math.Round(corner / game, 2);
+            double averagefoul = Math.Round(foul / game, 2);
+
+            var players = c.Players.Where(x => x.TeamID == Model.TeamID && x.Save > 0).ToList();
+            var save = players.First().Save;
+            double averagesave = Math.Round(save / game, 2);
+
+        }
+        <div id="mainstats">
+            <div id="chart">
+                <div id="donutchart" style="height: 200px;"></div>
+                <div class="total">
+                    <p class="count">@Model.Game</p>
+                    <p>Oyun</p>
+                </div>
+            </div>
+            <div class="colors">
+                <div class="color">@Model.Win Qələbə</div>
+                <div class="color">@Model.Draw Heç-heçə</div>
+                <div class="color">@Model.Lose Məğlubiyyət</div>
+            </div>
+        </div>
+        <div id="averages">
+            <div class="data">
+                <p class="count">@Model.GoalFor</p>
+                <p class="data-name">Atılan gol</p>
+                <p class="average">Oyun başına @averagegoalfor</p>
+            </div>
+            <div class="data">
+                <p class="count">@Model.GoalAgainst</p>
+                <p class="data-name">Yeyilən gol</p>
+                <p class="average">Oyun başına @averagegoalagainst</p>
+            </div>
+
+
+            <div class="data">
+                <p class="count">@shot</p>
+                <p class="data-name">Zərbə</p>
+                <p class="average">Oyun başına @averageshot</p>
+            </div>
+            <div class="data">
+                <p class="count">@shotontarget</p>
+                <p class="data-name">Qapıya zərbə</p>
+                <p class="average">Oyun başına @averageshotontarget</p>
+            </div>
+
+
+            <div class="data">
+                <p class="count">@asist</p>
+                <p class="data-name">Asist</p>
+                <p class="average">Oyun başına @averageasist</p>
+            </div>
+            <div class="data">
+                <p class="count">@save</p>
+                <p class="data-name">Save</p>
+                <p class="average">Oyun başına @averagesave</p>
+            </div>
+
+
+            <div class="data">
+                <p class="count">@foul</p>
+                <p class="data-name">Cərimə</p>
+                <p class="average">Oyun başına @averagefoul</p>
+            </div>
+            <div class="data">
+                <p class="count">@Model.RedCard</p>
+                <p class="data-name">Qırmızı kart</p>
+                <p class="average">Oyun başına @averageredcard</p>
+            </div>
+
+
+            <div class="data">
+                <p class="count">@corner</p>
+                <p class="data-name">Korner</p>
+                <p class="average">Oyun başına @averagecorner</p>
+            </div>
+            <div class="data">
+                <p class="count">@stealing</p>
+                <p class="data-name">Top alma</p>
+                <p class="average">Oyun başına @averagestealing</p>
+            </div>
+
+
+            <div class="data">
+                <p class="count">@averageposession%</p>
+                <p class="data-name">Topa sahib olma</p>
+            </div>
+            <div class="data">
+                <p class="count">@averagepass%</p>
+                <p class="data-name">Dəqiq pas</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="playerstab" class="tab">
+        <header>
+            <i class="fas fa-futbol goalicon"></i>
+            <img class="asist" src="~/Images/asist.png" alt="">
+            <span class="redcard"></span>
+        </header>
+
+        @Html.Action("TeamPlayers", "User", new { @id = Model.TeamID });
+    </div>
+
+    <div id="gamestab" class="tab">
+        @Html.Action("TeamGames", "User", new { @id = Model.TeamID });
+    </div>
+
+    <div id="grouptab" class="tab">
+        @Html.Action("Groups", "User", new { @group = Model.Group })
+    </div>
+
+</section>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Nəticə', 'Oyun sayı'],
+            ['Qələbə', @Model.Win],
+            ['Heç heçə', @Model.Draw],
+            ['Məğlubiyyət', @Model.Lose]
+        ]);
+
+        var options = {
+            title: '',
+            chartArea: { left: 0, top: 2, width: '100%', height: '83%' },
+            pieHole: 0.7,
+            backgroundColor: 'transparent',
+            legend: 'none',
+            pieSliceText: 'none',
+            enableInteractivity: false,
+            stroke: 'transparent',
+            //backgroundColor.stroke : 'transparent',
+            colors: ['#0162e8', '#37ABDC', '#e131e1']
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#playerstab").hide();
+        $("#gamestab").hide();
+        $("#grouptab").hide();
+
+        $(".link").click(function () {
+            $(".link").removeClass("activetab");
+            $(this).addClass("activetab");
+            $(".tab").hide();
+            if ($(this).text() == "Statistika") {
+                $("#statisticstab").show();
+            }
+            if ($(this).text() == "Oyunçular") {
+                $("#playerstab").show();
+            }
+            if ($(this).text() == "Oyunlar") {
+                $("#gamestab").show();
+            }
+            if ($(this).text() == "Qrup") {
+                $("#grouptab").show();
+            }
+        });
+
+    });
+
+</script>

@@ -1,0 +1,20 @@
+﻿@model FRITL_League_2023.Models.Player
+@{
+    ViewBag.Title = "AddPlayer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("AddPlayer", "Admin", FormMethod.Post))
+{
+    <section id="additems">
+        <label for="player-team">Komanda</label>
+        @Html.DropDownListFor(x => x.TeamID, (List<SelectListItem>)ViewBag.teams, new
+           { @class = "form-control", @id = "player-team" })
+
+        <label for="player-name">Ad</label>
+        <input id="player-name" name="PlayerName" type="text" class="form-control">
+
+        <button class="btn btn-success">Artır</button>
+    </section>
+}
+

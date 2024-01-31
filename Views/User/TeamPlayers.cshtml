@@ -1,0 +1,39 @@
+﻿@using FRITL_League_2023.Models
+@model List<Player>
+
+@{ 
+    var goalkeeper = new Player();
+}
+
+@foreach (var item in Model)
+{
+    if (item.PlayerPosision != "GK")
+    {
+        <div class="player">
+            <p class="playername">@item.PlayerName</p>
+            <div class="datas">
+                <p class="count">@item.Goal</p>
+                <p class="count">@item.Asist</p>
+                <p class="count">@item.RedCard</p>
+            </div>
+        </div>
+    }
+    else {
+        goalkeeper = item;
+    }
+}
+
+<br />
+<header>
+    <img class="asist" src="~/Images/goalkeeper.png" alt="">
+    <img class="asist" src="~/Images/asist.png" alt="">
+    <span class="redcard"></span>
+</header>
+<div class="player">
+    <p class="playername">@goalkeeper.PlayerName</p>
+    <div class="datas">
+        <p class="count">@goalkeeper.Save</p>
+        <p class="count">@goalkeeper.Asist</p>
+        <p class="count">@goalkeeper.RedCard</p>
+    </div>
+</div>

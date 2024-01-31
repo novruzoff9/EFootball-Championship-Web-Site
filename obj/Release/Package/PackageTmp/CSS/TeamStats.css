@@ -1,0 +1,423 @@
+﻿#team main {
+    flex-direction: column;
+}
+
+#team .tour p {
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+#team header {
+    margin: 5px 0;
+    width: 100%;
+    align-items: center;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+    #team header .logo {
+        width: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        #team header .logo img {
+            height: 90px;
+            border-radius: 50%;
+        }
+
+    #team header .details {
+        margin-left: 40px;
+    }
+
+        #team header .details .cup img {
+            width: 30px;
+        }
+
+        #team header .details p.secondary {
+            width: 100%;
+            text-align: left;
+            color: #87898F;
+            font-weight: 400;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        #team header .details p.main {
+            color: white;
+            font-weight: 500;
+            font-size: 22px;
+            margin: 0;
+        }
+
+#team article {
+    border-top: 1px solid #373b41;
+    border-bottom: 1px solid #373b41;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+    #team article p.link {
+        color: white;
+        margin: 0;
+    }
+
+        #team article p.link:not(:first-child) {
+            margin-left: 5px;
+        }
+
+        #team article p.link:not(:last-child) {
+            margin-right: 5px;
+        }
+
+    #team article p.activetab {
+        color: #0162e8;
+    }
+
+#team .tab {
+    width: 100%;
+    padding: 20px;
+}
+
+    #team .tab .statistic {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 16px;
+    }
+
+        #team .tab .statistic .details {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+            #team .tab .statistic .details p {
+                color: #fff;
+                margin: 0;
+            }
+
+#statisticstab {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+    #statisticstab #mainstats {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+        #statisticstab #mainstats #chart {
+            width: 50%;
+            height: 168px;
+            position: relative;
+        }
+
+            #statisticstab #mainstats #chart #donutchart {
+                width: 100%;
+            }
+
+            #statisticstab #mainstats #chart .total {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+                #statisticstab #mainstats #chart .total p {
+                    color: white;
+                    font-size: 20px;
+                    margin: 0;
+                }
+
+                    #statisticstab #mainstats #chart .total p.count {
+                        font-weight: 500;
+                    }
+
+        #statisticstab #mainstats .colors {
+            width: calc(50% - 20px);
+            margin-left: 20px;
+            height: 168px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+            #statisticstab #mainstats .colors .color {
+                color: white;
+                margin: 0;
+                display: flex;
+                align-items: center;
+            }
+
+        #statisticstab #mainstats .color::before {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border-radius: 50%;
+        }
+
+        #statisticstab #mainstats .color:nth-child(1)::before {
+            background-color: #0162e8;
+        }
+
+        #statisticstab #mainstats .color:nth-child(2)::before {
+            background-color: #37ABDC;
+        }
+
+        #statisticstab #mainstats .color:nth-child(3)::before {
+            background-color: #e131e1;
+        }
+
+    #statisticstab #averages {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+        #statisticstab #averages .data {
+            margin-top: 30px;
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+        }
+
+            #statisticstab #averages .data p.count {
+                color: white;
+                font-size: 28px;
+                font-weight: 500;
+                margin: 0;
+            }
+
+            #statisticstab #averages .data p.data-name {
+                color: white;
+                font-size: 18px;
+                margin: 0;
+            }
+
+            #statisticstab #averages .data p.average {
+                color: white;
+                font-size: 14px;
+                margin: 0;
+            }
+
+#playerstab {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+    #playerstab header {
+        width: 40%;
+        padding: 0;
+        align-self: flex-end;
+        justify-content: space-between;
+    }
+
+    #playerstab .player {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        margin: 6px 0;
+    }
+
+        #playerstab .player .playername {
+            width: calc(60% - 10px);
+            margin-right: 10px;
+        }
+
+        #playerstab .player .datas {
+            display: flex;
+            flex-direction: row;
+            width: 40%;
+            justify-content: space-between;
+            padding: 0 6px;
+        }
+
+        #playerstab .player p {
+            color: white;
+            font-weight: 500;
+            margin: 0;
+        }
+
+    #playerstab .redcard {
+        width: 20px !important;
+        height: 30px;
+        background-color: red;
+        border-radius: 8px;
+        transform: rotate(15deg);
+    }
+
+    #playerstab .asist {
+        width: 32px;
+        height: 32px;
+        transform: rotate(70deg);
+    }
+
+    #playerstab .goalicon {
+        color: white;
+        font-weight: 500;
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+#gamestab main {
+    flex-direction: column;
+}
+
+#gamestab .game {
+    margin: 6px 0;
+    width: 100%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    justify-content: space-between;
+    border-radius: 16px;
+    background-color: #373b41;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+    #gamestab .game .team {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 35%;
+        justify-content: space-between;
+    }
+
+        #gamestab .game .team .logo {
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #gamestab .game .team img {
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        #gamestab .game .team p {
+            color: white;
+            font-weight: 500;
+            font-size: 20px;
+            margin: 0;
+        }
+
+    #gamestab .game .result {
+        display: flex;
+        align-items: center;
+        color: white;
+        font-weight: 500;
+        font-size: 20px;
+        margin: 0;
+        width: 30%;
+        padding: 0 10px;
+    }
+
+        #gamestab .game .result span {
+            width: 40%;
+            text-align: center;
+        }
+
+#grouptab .group {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: #373b41;
+    border-radius: 16px;
+    padding-bottom: 20px;
+}
+
+    #grouptab .group p.groupname {
+        color: white;
+        font-weight: 500;
+        font-size: 24px;
+        margin: 0;
+    }
+
+    #grouptab .group .header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        background-color: #0162e8;
+        border-radius: 16px 16px 0 0;
+        padding: 20px;
+    }
+
+    #grouptab .group .datas {
+        display: flex;
+        flex-direction: row;
+        color: white;
+        font-weight: 500;
+        width: 160px;
+        justify-content: space-between;
+        margin-left: 5px;
+    }
+
+        #grouptab .group .datas p {
+            margin: 0;
+            font-size: 18px;
+        }
+
+    #grouptab .group .team {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+        #grouptab .group .team .logo {
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #grouptab .group .team img {
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        #grouptab .group .team p {
+            margin: 0;
+            color: white;
+            font-weight: 500;
+        }
+
+            #grouptab .group .team p.teamname {
+                font-size: 20px;
+                padding: 0 10px;
+            }
+
+        #grouptab .group .team:not(:first-child) {
+            margin-top: 10px;
+        }
+
+        #grouptab .group .team:not(:last-child) {
+            margin-bottom: 10px;
+        }
+/*# sourceMappingURL=Team.css.map */

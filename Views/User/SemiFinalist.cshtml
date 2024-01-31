@@ -1,0 +1,71 @@
+﻿@using FRITL_League_2023.Models
+@model FRITL_League_2023.Models.Team
+@{ 
+    Context c = new Context();
+    Game game1 = new Game();
+    Game game2 = new Game();
+    int goal1 = 0;
+    int goal2 = 0;
+}
+@if (Model.TeamID == -1)
+{
+    <div class="team empty">
+        <div class="logo">
+            <img src="Images/MNU.png" alt="">
+        </div>
+        <p class="teamname">???</p>
+        <div class="goals">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+}
+
+else
+{
+    var games = c.Games.Where(x => x.Tour == "1/2 FINAL").ToList();
+    if(Model.Stage % 2 == 1)
+    {
+        game1 = games.FirstOrDefault(x => x.Team1ID == Model.TeamID);
+        game2 = games.FirstOrDefault(x => x.Team2ID == Model.TeamID);
+        if(game1 != null)
+        {
+            goal1 = game1.Team1Score;
+            goal2 = game2.Team2Score;
+        }
+    }
+    else
+    {
+        game1 = games.FirstOrDefault(x => x.Team2ID == Model.TeamID);
+        game2 = games.FirstOrDefault(x => x.Team1ID == Model.TeamID);
+        if (game1 != null)
+        {
+            goal1 = game1.Team2Score;
+            goal2 = game2.Team1Score;
+        }
+    }
+    <div class="team">
+        <div class="logo">
+            <img src="@Model.TeamLogo" alt="">
+        </div>
+        <p class="teamname">@Model.TeamShortName</p>
+        <div class="goals">
+            @if (game1 != null)
+            {
+                <span>@goal1</span>
+            }
+            else
+            {
+                <span></span>
+            }
+            @if (game2 != null)
+            {
+                <span>@goal2</span>
+            }
+            else
+            {
+                <span></span>
+            }
+        </div>
+    </div>
+}

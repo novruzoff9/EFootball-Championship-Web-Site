@@ -1,0 +1,200 @@
+#groups main {
+  flex-direction: row;
+  overflow: auto;
+}
+#groups .group {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: #373b41;
+  border-radius: 16px;
+  padding-bottom: 20px;
+}
+#groups .group p.groupname {
+  color: white;
+  font-weight: 500;
+  font-size: 24px;
+  margin: 0;
+}
+#groups .group .header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: #0162e8;
+  border-radius: 16px 16px 0 0;
+  padding: 20px;
+}
+#groups .group .datas {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  font-weight: 500;
+  width: 160px;
+  justify-content: space-between;
+  margin-left: 5px;
+}
+#groups .group .datas p {
+  margin: 0;
+  font-size: 18px;
+}
+#groups .group .team {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+#groups .group .team .logo {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#groups .group .team img {
+  height: 50px;
+  border-radius: 50%;
+}
+#groups .group .team p {
+  margin: 0;
+  color: white;
+  font-weight: 500;
+}
+#groups .group .team p.teamname {
+  font-size: 20px;
+  padding: 0 10px;
+}
+#groups .group .team:not(:first-child) {
+  margin-top: 10px;
+}
+#groups .group .team:not(:last-child) {
+  margin-bottom: 10px;
+}
+#groups .group:not(:first-child) {
+  margin-left: 5px;
+}
+#groups .group:not(:last-child) {
+  margin-right: 5px;
+}
+
+#games main {
+  flex-direction: column;
+}
+#games .game {
+  width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  justify-content: space-between;
+  border-radius: 16px;
+  background-color: #373b41;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+#games .game .team {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 38%;
+  justify-content: space-between;
+}
+#games .game .team img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+#games .game .team p {
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0;
+}
+#games .game .result {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0;
+  width: 24%;
+  padding: 0 10px;
+}
+#games .game .result span {
+  width: 40%;
+  text-align: center;
+}
+#games .game:not(:first-child) {
+  margin-top: 5px;
+}
+#games .game:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+#bests main {
+  flex-direction: column;
+  padding: 20px;
+}
+#bests main .best {
+  width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px;
+  background-color: #373b41;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+#bests main .best .data-player, #bests main .best .data-value {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#bests main .best .data-player {
+  width: 70%;
+}
+#bests main .best .data-value {
+  width: 20%;
+  justify-content: space-between;
+}
+#bests main .best img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+#bests main .best p.player {
+  margin-left: 8px;
+}
+#bests main .best p, #bests main .best i {
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+#bests main .best i {
+  font-size: 24px;
+}
+#bests main .best .asist {
+  width: 32px;
+  height: 32px;
+  transform: rotate(70deg);
+}
+#bests main .best .redcard {
+  width: 30px;
+  height: 40px;
+  background-color: red;
+  border-radius: 8px;
+  transform: rotate(15deg);
+}
+#bests main .best .yellowcard {
+  width: 30px;
+  height: 40px;
+  background-color: yellow;
+  border-radius: 8px;
+  transform: rotate(15deg);
+}
+#bests main .best:not(:first-child) {
+  margin-top: 5px;
+}
+#bests main .best:not(:last-child) {
+  margin-bottom: 5px;
+}/*# sourceMappingURL=Home.css.map */

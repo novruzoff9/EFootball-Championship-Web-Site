@@ -1,0 +1,41 @@
+﻿@using FRITL_League_2023.Models
+@model List<Event>
+@{
+    int id = ViewBag.gameid;
+    Context c = new Context();
+    var game = c.Games.FirstOrDefault(x => x.GameID == id);
+    var team1 = c.Teams.FirstOrDefault(x => x.TeamID == game.Team1ID);
+    var team2 = c.Teams.FirstOrDefault(x => x.TeamID == game.Team2ID);
+}
+
+<link href="~/CSS/GameEvents.css" rel="stylesheet" />
+
+<div id="asiststab" class="tab eventtab">
+
+    @foreach (var item in Model)
+    {
+        var player = c.Players.FirstOrDefault(x => x.PlayerID == item.PlayerID);
+        if (player.TeamID == team1.TeamID)
+        {
+            <div class="goal">
+                <div class="logo">
+                    <img src="@team1.TeamLogo" alt="">
+                </div>
+                <p class="player">@player.PlayerName</p>
+                <p class="count">@item.Asist</p>
+            </div>
+        }
+        else if (player.TeamID == team2.TeamID)
+        {
+            <div class="goal away">
+                <div class="logo">
+                    <img src="@team2.TeamLogo" alt="">
+                </div>
+                <p class="player">@player.PlayerName</p>
+                <p class="count">@item.Asist</p>
+            </div>
+        }
+
+    }
+</div>
+

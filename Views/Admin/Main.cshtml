@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .duoinput {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+        .duoinput .half {
+            width: calc(50% - 40px);
+        }
+</style>
+
+<section id="additems">
+    <a href="/Admin/AddTeam" class="add">
+        <span class="circle"><i class="fas fa-plus"></i></span>
+        <span class="detail"><p>Komanda artır</p></span>
+    </a>
+    <a href="/Admin/AddPlayer" class="add">
+        <span class="circle"><i class="fas fa-plus"></i></span>
+        <span class="detail"><p>Oyunçu artır</p></span>
+    </a>
+    <a href="/Admin/AddGame" class="add">
+        <span class="circle"><i class="fas fa-plus"></i></span>
+        <span class="detail"><p>Oyun artır</p></span>
+    </a>
+    <a href="/Admin/Games" class="add">
+        <span class="circle"><i class="fas fa-plus"></i></span>
+        <span class="detail"><p>Oyuna hadisə artır</p></span>
+    </a>
+
+    <a href="/Admin/GamesList" class="add">
+        <span class="circle"><i class="fas fa-wrench"></i></span>
+        <span class="detail"><p>Oyunu düzəlt</p></span>
+    </a>
+</section>
+

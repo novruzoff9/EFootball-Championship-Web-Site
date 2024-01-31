@@ -1,0 +1,137 @@
+#finals main {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+#finals main .tour {
+  display: flex;
+  flex-direction: column;
+}
+#finals main .tour .game {
+  display: flex;
+  flex-direction: column;
+  background-color: #373b41;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  justify-content: space-between;
+  border-radius: 16px;
+  padding: 20px;
+}
+#finals main .tour .game .team {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#finals main .tour .game .team .logo {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#finals main .tour .game .team .logo img {
+  height: 50px;
+  border-radius: 50%;
+}
+#finals main .tour .game .team p.teamname {
+  margin: 0;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 0 10px;
+  width: 80px;
+}
+#finals main .tour .game .team .goals {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 0 10px;
+}
+#finals main .tour .game .team .goals span {
+  background-color: #202020;
+  width: 30px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+#finals main .tour .game .empty .logo {
+  height: 50px;
+  border-radius: 50%;
+  border: 1px dotted #0162e8;
+}
+#finals main .tour .game .empty img {
+  display: none;
+}
+#finals main .tour .game .empty p.teamname {
+  content: "XXX" !important;
+}
+#finals main .tour .game .team:nth-child(1) {
+  margin-bottom: 10px;
+}
+#finals main .tour .game .team:nth-child(2) {
+  margin-top: 10px;
+}
+#finals main .tour .game:not(:last-child) {
+  margin-bottom: 10px;
+}
+#finals main .tour .game:not(:first-child) {
+  margin-top: 10px;
+}
+#finals main .semi-final {
+  margin-left: 60px;
+  justify-content: space-around;
+}
+#finals main .final {
+  margin-left: 60px;
+  justify-content: center;
+}
+#finals main .final .goals {
+  width: 50px !important;
+}
+#finals main .champion {
+  margin-left: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#finals main .champion img.cup {
+  transform: translateY(-40%);
+}
+#finals main .champion img {
+  width: 80px;
+}
+#finals main .champion .team {
+  transform: translateY(-50%);
+  margin-bottom: 40px;
+  padding: 20px;
+  width: 300px;
+  border-radius: 16px;
+  background-color: #373b41;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#finals main .champion .team .logo {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#finals main .champion .team .logo img {
+  height: 50px;
+  border-radius: 50%;
+}
+#finals main .champion .team p.teamname {
+  margin: 0;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 0 10px;
+  width: 80px;
+}/*# sourceMappingURL=finals.css.map */

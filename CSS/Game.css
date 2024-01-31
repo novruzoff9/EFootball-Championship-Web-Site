@@ -1,0 +1,111 @@
+#game main {
+  flex-direction: column;
+}
+#game .tour p {
+  color: white;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+#game header {
+  margin: 5px 0;
+  width: 100%;
+  justify-content: space-between;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+#game header .team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+  justify-content: space-between;
+}
+#game header .team .logo {
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#game header .team img {
+  height: 70px;
+  border-radius: 50%;
+}
+#game header .team p {
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0;
+}
+#game header .result {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 0;
+  width: 30%;
+  padding: 0 10px;
+}
+#game header .result .tour, #game header .result .game-type {
+  width: 100%;
+  text-align: center;
+  color: #87898F;
+  font-weight: 400;
+  font-size: 18px;
+}
+#game header .result .score {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+#game header .result .score .goal {
+  width: 40%;
+  font-size: 22px;
+  text-align: center;
+}
+#game article {
+  border-top: 1px solid #373b41;
+  border-bottom: 1px solid #373b41;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+}
+#game article p.link {
+  color: white;
+  margin: 0;
+}
+#game article p.link:not(:first-child) {
+  margin-left: 5px;
+}
+#game article p.link:not(:last-child) {
+  margin-right: 5px;
+}
+#game article p.activetab {
+  color: #0162e8;
+}
+#game .tab {
+  width: 100%;
+  padding: 20px;
+}
+#game .tab .statistic {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+#game .tab .statistic .details {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+#game .tab .statistic .details p {
+  color: #fff;
+  margin: 0;
+}/*# sourceMappingURL=Game.css.map */

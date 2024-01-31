@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "_AdminLayout";
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRITL League 2023</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9025664961128837"
+            crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="Images/Rkt logo white.png">
+    <link href="~/CSS/Layout.css" rel="stylesheet" />
+    <link href="~/CSS/APHome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9025664961128837"
+            crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+
+<body>
+
+    @RenderBody()
+
+    <!--<nav>
+        <ul>
+            <li class="activepage">
+                <a href="Home.html">
+                    <i class="fas fa-home"></i>
+                    <p>Əsas</p>
+                </a>
+            </li>
+            <li>
+                <a href="Groups.html">
+                    <i class="fas fa-table"></i>
+                    <p>Qruplar</p>
+                </a>
+            </li>
+            <li>
+                <a href="Games.html">
+                    <i class="far fa-futbol"></i>
+                    <p>Oyunlar</p>
+                </a>
+            </li>
+            <li>
+                <a href="Bests.html">
+                    <i class="fas fa-trophy"></i>
+                    <p>Ulduzlar</p>
+                </a>
+            </li>
+        </ul>
+    </nav>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            var width = $(window).width();
+            console.log(width);
+            $(".group").width(width);
+
+            $(document).scroll(function () {
+                if ($(document).scrollTop() > 100) {
+                    header.addClass("shrink");
+                }
+                else {
+                    header.removeClass("shrink")
+                }
+            });
+
+            $("section").last().css("margin-bottom", "84px");
+        });
+
+    </script>
+
+</body>
+
+</html>
+

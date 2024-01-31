@@ -1,0 +1,102 @@
+﻿@model FRITL_League_2023.Models.Game
+@{
+    ViewBag.Title = "UpdateGame";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .duoinput {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+        .duoinput .half {
+            width: calc(50% - 40px);
+        }
+</style>
+
+@using (Html.BeginForm("UpdateGame", "Admin", FormMethod.Post))
+{
+    <section id="additems">
+        @Html.TextBoxFor(x => x.GameID, new { @type = "hidden", @class = "form-control half" })
+        <label for="player-team">Komanda 1</label>
+        @Html.DropDownListFor(x => x.Team1ID, (List<SelectListItem>)ViewBag.teams, new
+           { @class = "form-control", @id = "player-team" })
+
+        <label for="player-team">Komanda 2</label>
+        @Html.DropDownListFor(x => x.Team2ID, (List<SelectListItem>)ViewBag.teams, new
+           { @class = "form-control", @id = "player-team" })
+
+        <label>Tur</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Tour, new { @class = "form-control" })
+        </div>
+
+        <label>Gol</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1Score, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2Score, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <label>Asist</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1Asist, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2Asist, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <label>Zərbə</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1Shot, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2Shot, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <label>Qapıya zərbə</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1ShotonTarget, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2ShotonTarget, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <label>Cərimə</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1Foul, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2Foul, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <label>Qırmızı Kart</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1RedCard, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2RedCard, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <label>Dəqiq pas (%)</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1Pass, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2Pass, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <label>Korner</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1Corner, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2Corner, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <label>Top çalma</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1Stealing, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2Stealing, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <label>Topla oynama(%)</label>
+        <div class="duoinput">
+            @Html.TextBoxFor(x => x.Team1Possession, new { @type = "number", @class = "form-control half" })
+            @Html.TextBoxFor(x => x.Team2Possession, new { @type = "number", @class = "form-control half" })
+        </div>
+
+        <button class="btn btn-success">Düzəlt</button>
+    </section>
+
+
+}
+

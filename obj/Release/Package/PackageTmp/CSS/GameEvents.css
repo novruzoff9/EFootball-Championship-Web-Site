@@ -1,0 +1,32 @@
+.eventtab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.eventtab .goal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: calc(100% - 80px);
+  justify-content: space-between;
+  margin: 5px 0;
+}
+.eventtab .goal .logo {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.eventtab .goal .logo img {
+  height: 50px;
+  border-radius: 50%;
+}
+.eventtab .goal p {
+  color: white;
+  font-weight: 500;
+  margin: 0;
+}
+.eventtab .away {
+  flex-direction: row-reverse;
+  align-self: flex-end;
+}/*# sourceMappingURL=GameGoals.css.map */
